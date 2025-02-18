@@ -29,5 +29,7 @@ jobs:
                 ssh-keyscan github.com >> /home/ubuntu/.ssh/known_hosts
                 git pull origin main
                 npm install
+                sudo systemctl reload nginx
+                sudo systemctl restart stage3_node_service
                 EOF
             
