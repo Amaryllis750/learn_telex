@@ -1,0 +1,12 @@
+{
+  "name": "learn_telex",
+  "version": "1.0.0",
+  "description": "This is a github repository that I am creating in order to be able to learn telex integration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
