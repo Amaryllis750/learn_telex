@@ -1,9 +1,14 @@
 const express = require('express');
 const application = express();
 const helpers = require('./helpers');
+const integrationSpecs = require('./data/integrationSpecs');
 
 // use middleware
 application.use(express.json());
+
+application.get('/', async(req, res) => {
+    return res.status(200).json(integrationSpecs);
+});
 
 application.post('/capitalize-names', async(req, res)=> {
     const object = req.body;
