@@ -23,12 +23,11 @@ jobs:
               run: |
                 ssh -o StrictHostKeyChecking=no ubuntu@20.115.88.88 << 'EOF'
                 echo "Connected to Server"
-                mkdir -p /home/ubuntu/myproject/stage3 && cd /home/ubuntu/my_project/stage3
+                mkdir -p /home/ubuntu/myproject/stage3/learn_telex && cd /home/ubuntu/my_project/stage3/learn_telex
                 eval "$(ssh-agent -s)"
                 ssh-add /home/ubuntu/.ssh/github_ssh
                 ssh-keyscan github.com >> /home/ubuntu/.ssh/known_hosts
                 git pull origin main
                 npm install
-                sudo systemctl restart stage3_service
                 EOF
             
