@@ -14,6 +14,8 @@ jobs:
         steps:
             - name: Checkout Repository
               uses: actions/checkout@v3
+              with:
+                path: learn_telex
 
             - name: Setup Node.js
               uses: actions/setup-node@v4

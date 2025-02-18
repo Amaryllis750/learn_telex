@@ -21,7 +21,7 @@ jobs:
             
             - name: Deploy to server
               run: |
-                ssh -o StrictHostKeyNoChecking=no ubuntu@20.115.88.88 << 'EOF'
+                ssh -o StrictHostKeyChecking=no ubuntu@20.115.88.88 << 'EOF'
                 echo "Connected to Server"
                 mkdir -p /home/ubuntu/myproject/stage3 && cd /home/ubuntu/my_project/stage3
                 eval "$(ssh-agent -s)"
