@@ -1,0 +1,34 @@
+name: Deploy To VM
+
+on:
+    push:
+        branches: [main]
+
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v3
+
+            - name: Setup SSH
+              uses: webfactory/ssh-agent@v0.5.3
+              with: 
+                ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+            
+            - name: Deploy to server
+              run: |
+                ssh -o StrictHostKeyNoChecking=no ubuntu@20.115.88.88 << 'EOF'
+                echo "Connected to Server"
+                mkdir -p /home/ubuntu/myproject/stage3 && cd /home/ubuntu/my_project/stage3
+                eval "$(ssh-agent -s)"
+                ssh-add /home/ubuntu/.ssh/github_ssh
+                ssh-keyscan github.com >> /home/ubuntu/.ssh/known_hosts
+                git pull origin main
+                npm install
+                sudo systemctl restart stage3_service
+                EOF
+            
